@@ -4,7 +4,7 @@ import Constants from 'expo-constants';
 const myStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#ebe',
+    backgroundColor: '#fdb',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingTop: Constants.statusBarHeight
@@ -32,12 +32,17 @@ const myStyles = StyleSheet.create({
   timerLabel: {
     fontSize: 36
   },
+  timerLabel22: {
+    fontSize: 22
+  },
 
-  button: {
-    // flex: 1,
+  buttonControls: {
+    flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
     marginLeft: 0,
     padding: 10,
+    height: 80,
     marginHorizontal: 3,
     borderRadius: 20,
     borderWidth: 1,
@@ -48,22 +53,36 @@ const myStyles = StyleSheet.create({
     fontSize: 28
   },
   buttonStart: {
-    flex: 1,
+    // flex: 1,
+    // alignItems: 'center',
+    // justifyContent: 'center',
     backgroundColor: 'teal'
   },
   buttonStop: {
-    flex: 1,
+    // flex: 1,
+    // alignItems: 'center',
+    // justifyContent: 'center',
     backgroundColor: 'crimson'
   },
   buttonReset: {
-    flex: 1,
+    // flex: 1,
+    // alignItems: 'center',
+    // justifyContent: 'center',
     backgroundColor: 'indigo'
   },
 
   buttonSettings: {
     flex: 1,
-    margin: 2,
-    backgroundColor: 'linen'
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginHorizontal: 10,
+    backgroundColor: '#fb7',
+    padding: 10,
+    height: 40,
+    marginHorizontal: 3,
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'linen'
   },
   settingsText: {
     color: 'indigo',
@@ -76,13 +95,13 @@ const myStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: 50
+    marginTop: 20
   },
   settingsContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: 5
+    justifyContent: 'center'
+    // padding: 5
   }
 });
 export default myStyles;
