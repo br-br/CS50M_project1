@@ -12,7 +12,8 @@ const myStyles = StyleSheet.create({
   title: {
     fontSize: 44,
     fontWeight: 'bold',
-    padding: 10
+    padding: 10,
+    color: '#117'
   },
   timerContainer: {
     flex: 1,
@@ -27,10 +28,12 @@ const myStyles = StyleSheet.create({
     padding: 20
   },
   timer: {
-    fontSize: 72
+    fontSize: 80,
+    color: '#116'
   },
   timerLabel: {
-    fontSize: 36
+    fontSize: 38,
+    color: '#116'
   },
   timerLabel22: {
     fontSize: 22
@@ -56,7 +59,7 @@ const myStyles = StyleSheet.create({
     // flex: 1,
     // alignItems: 'center',
     // justifyContent: 'center',
-    backgroundColor: 'teal'
+    backgroundColor: 'seagreen'
   },
   buttonStop: {
     // flex: 1,
@@ -68,7 +71,7 @@ const myStyles = StyleSheet.create({
     // flex: 1,
     // alignItems: 'center',
     // justifyContent: 'center',
-    backgroundColor: 'indigo'
+    backgroundColor: 'darkorange'
   },
 
   buttonSettings: {
@@ -76,17 +79,17 @@ const myStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: 10,
-    backgroundColor: '#fb7',
+    backgroundColor: '#248',
     padding: 10,
-    height: 40,
+    height: 48,
     marginHorizontal: 3,
     borderRadius: 20,
     borderWidth: 1,
     borderColor: 'linen'
   },
   settingsText: {
-    color: 'indigo',
-    fontSize: 18
+    color: 'linen',
+    fontSize: 22
   },
 
   controlContainer: {
