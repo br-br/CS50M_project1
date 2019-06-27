@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text, View, Button, TouchableHighlight } from 'react-native';
+import { Text, View, TouchableHighlight } from 'react-native';
 
 import myStyles from './Styles';
+import Timer from './components/countdown/countdown';
 
 const styles = myStyles;
 
@@ -9,6 +10,7 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      currentTime: 15 * 60,
       started: false,
       stopped: false,
       resetted: false,
@@ -30,11 +32,6 @@ export default class App extends React.Component {
       resetted: true
     });
   };
-  onPressReset = () => {
-    this.setState({
-      resetted: true
-    });
-  };
 
   onPressSettings = () => {
     this.setState({
@@ -48,8 +45,8 @@ export default class App extends React.Component {
         <Text style={styles.title}>Pomodoro Timer</Text>
         <View style={styles.timerContainer}>
           <View style={styles.labelContainer}>
-            <Text style={styles.timer}>12 : 34</Text>
             <Text style={styles.timerLabel}>Time to work</Text>
+            <Timer duration={this.state.currentTime} />
           </View>
 
           <View style={styles.controlContainer}>

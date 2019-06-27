@@ -30,7 +30,7 @@ const myStyles = StyleSheet.create({
     fontSize: 72
   },
   timerLabel: {
-    fontSize: 28
+    fontSize: 36
   },
 
   button: {
