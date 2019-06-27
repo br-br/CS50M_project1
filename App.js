@@ -19,12 +19,14 @@ export default class App extends React.Component {
   }
   onPressStart = () => {
     this.setState({
-      started: true
+      started: true,
+      stopped: false
     });
   };
   onPressStop = () => {
     this.setState({
-      stopped: true
+      stopped: true,
+      started: false
     });
   };
   onPressReset = () => {
@@ -45,8 +47,18 @@ export default class App extends React.Component {
         <Text style={styles.title}>Pomodoro Timer</Text>
         <View style={styles.timerContainer}>
           <View style={styles.labelContainer}>
+            {/* <Text style={styles.timerLabel}>
+              started: {this.state.started === true ? 'true' : 'false'}
+            </Text>
+            <Text style={styles.timerLabel}>
+              stopped: {this.state.stopped === true ? 'true' : 'false'}
+            </Text> */}
             <Text style={styles.timerLabel}>Time to work</Text>
-            <Timer duration={this.state.currentTime} />
+            <Timer
+              duration={this.state.currentTime}
+              stopped={this.state.stopped}
+              started={this.state.started}
+            />
           </View>
 
           <View style={styles.controlContainer}>

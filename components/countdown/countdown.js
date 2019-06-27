@@ -9,7 +9,8 @@ export default class Countdown extends Component {
     this.state = {
       interval: null,
       currentTime: this.props.duration,
-      stopped: this.props.duration <= 0
+      stopped: this.props.stopped,
+      started: this.props.started
     };
   }
 
@@ -21,9 +22,28 @@ export default class Countdown extends Component {
   componentWillUnmount() {
     this.clearInterval(this.state.interval);
   }
+  componentWillReceiveProps(nextProps) {
+    // if (nextProps.started !== this.props.started) {
+    //   this.setState({
+    //     started: nextProps.started
+    //   });
+    // }
+    // if (nextProps.stopped !== this.props.stopped) {
+    //   this.setState({
+    //     stopped: nextProps.stopped
+    //   });
+    // }
+    this.setState({
+      ...nextProps
+    });
+  }
+
+  // componentWillReceiveProps(nextProps) {
+  //   this.setState({ started: nextProps.started, stopped: nextProps.stopped });
+  // }
 
   countdown = () => {
-    if (!this.state.stopped) {
+    if (!this.state.stopped && this.state.started) {
       this.setState({
         currentTime: this.state.currentTime - 1
       });
@@ -31,12 +51,13 @@ export default class Countdown extends Component {
 
     if (this.state.currentTime === 0) {
       this.setState({
-        stopped: true
+        stopped: true,
+        started: false
       });
-      vibrate();
+      // vibrate();
     }
   };
-
+  switchTimer = () => {};
   padZeros = num => {
     return num < 10 ? '0' + num : '' + num;
   };
@@ -51,6 +72,12 @@ export default class Countdown extends Component {
   render() {
     return (
       <View style={styles.timerContainer}>
+        {/* <Text>
+          timer started: {this.state.started === true ? 'true' : 'false'}
+        </Text>
+        <Text>
+          timer stopped: {this.state.stopped === true ? 'true' : 'false'}
+        </Text> */}
         <Text style={styles.timer}>
           {this.getCurrentTimeString(this.state.currentTime)}
         </Text>
