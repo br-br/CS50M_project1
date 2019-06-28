@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Modal, Button } from 'react-native';
+import { View, Text, Modal, TouchableHighlight } from 'react-native';
 import styles from '../../Styles';
 import {
   WORK_TIME,
@@ -24,18 +24,39 @@ const settings = props => {
   );
   return (
     <Modal
-      style={styles.settingsPage}
       onRequestClose={props.onCancel}
-      // visible={props.showSettings}
+      visible={props.showSettings}
       animationType='slide'>
-      {modalContent}
-      {/* <View style={styles.settingsPage}> */}
-      {/* <View style={styles.settingsButtonsContainer}>
-        <Button title='Apply' color='seagreen' onPress={props.onApply} />
-        <Button title='Reset' color='purple' onPress={props.onReset} />
-        <Button title='Cancel' color='darkorange' onPress={props.onCancel} />
-      </View> */}
-      {/* </View> */}
+      <View style={styles.settingsPage}>
+        <View style={styles.settingsTextContainer}>
+          {/* <Image source={props.selectedPlace.image} style={styles.placeImage} /> */}
+          <Text style={styles.settingsText}>Some explaining text</Text>
+        </View>
+        {/* {modalContent} */}
+        <View style={styles.settingsButtonsContainer}>
+          <TouchableHighlight
+            style={[styles.buttonControls, styles.apply]}
+            // title='Apply'
+            // color='seagreen'
+            onPress={props.onApply}>
+            <Text style={styles.buttonText}> Apply Changes </Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            style={[styles.buttonControls, styles.reset]}
+            // title='Reset'
+            // color='purple'
+            onPress={props.onReset}>
+            <Text style={styles.buttonText}> Reset to Defaults </Text>
+          </TouchableHighlight>
+          <TouchableHighlight
+            style={[styles.buttonControls, styles.cancel]}
+            // title='Cancel'
+            // color='darkorange'
+            onPress={props.onCancel}>
+            <Text style={styles.buttonText}> Cancel</Text>
+          </TouchableHighlight>
+        </View>
+      </View>
     </Modal>
   );
 };

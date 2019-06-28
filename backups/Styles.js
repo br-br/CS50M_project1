@@ -129,30 +129,13 @@ const myStyles = StyleSheet.create({
   settingsPage: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#248',
-    paddingTop: Constants.statusBarHeight
-  },
-  apply: {
-    backgroundColor: 'seagreen',
-    margin: 2
-  },
-  reset: {
-    backgroundColor: 'purple',
-    margin: 2
-  },
-  cancel: {
-    backgroundColor: 'darkorange',
-    margin: 2
+    justifyContent: 'center',
+    backgroundColor: '#248'
   },
   settingsButtonsContainer: {
-    flex: 1,
-    width: '100%',
-    padding: 5,
-    justifyContent: 'space-between'
-  },
-  settingsTextContainer: {
-    flex: 1
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space around'
   }
 });
 export default myStyles;
