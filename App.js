@@ -2,8 +2,14 @@ import React from 'react';
 import { Text, View, TouchableHighlight } from 'react-native';
 
 import myStyles from './Styles';
-import { WORK_TIME, WORK_LABEL } from './utils/defaults';
+import {
+  WORK_TIME,
+  WORK_LABEL,
+  BREAK_TIME,
+  LONG_BREAK_TIME
+} from './utils/defaults';
 import Timer from './components/timer/timer';
+// import Settings from './components/settings/settings';
 
 const styles = myStyles;
 
@@ -13,11 +19,14 @@ export default class App extends React.Component {
     this.state = {
       currentTime: WORK_TIME,
       label: WORK_LABEL,
+      workTime: WORK_TIME,
+      breakTime: BREAK_TIME,
+      longBreakTime: LONG_BREAK_TIME,
       started: false,
       stopped: false,
       working: true,
       resetted: false,
-      settings: 'default'
+      showSettings: false
     };
   }
 
@@ -36,7 +45,7 @@ export default class App extends React.Component {
   };
   onPressReset = () => {
     this.setState({
-      currentTime: WORK_TIME,
+      currentTime: this.state.workTime,
       label: WORK_LABEL,
       working: true,
       started: false,
@@ -47,7 +56,32 @@ export default class App extends React.Component {
 
   onPressSettings = () => {
     this.setState({
-      settings: 'customized'
+      showSettings: true
+    });
+  };
+
+  handleSettingsCancel = () => {
+    // this.onPressReset();
+    this.setState({
+      showSettings: false
+    });
+  };
+  handleSettingsChange = () => {
+    // this.onPressReset();
+    this.setState({
+      // workTime: newSettings.workTime,
+      // breakTime: newSettings.breakTime,
+      // longBreakTime: newSettings.longBreakTime,
+      showSettings: false
+    });
+  };
+  handleSettingsReset = () => {
+    // this.onPressReset();
+    this.setState({
+      workTime: WORK_TIME,
+      breakTime: BREAK_TIME,
+      longBreakTime: LONG_BREAK_TIME,
+      showSettings: false
     });
   };
 
@@ -62,6 +96,9 @@ export default class App extends React.Component {
             started={this.state.started}
             working={this.state.working}
             resetted={this.state.resetted}
+            workTime={this.state.workTime}
+            breakTime={this.state.breakTime}
+            longBreakTime={this.state.longBreakTime}
           />
 
           <View style={styles.controlContainer}>
@@ -94,6 +131,12 @@ export default class App extends React.Component {
             onPress={this.onPressSettings}>
             <Text style={styles.settingsText}> Settings </Text>
           </TouchableHighlight>
+          <Settings
+            showSettings={this.state.showSettings}
+            // onCancel={this.handleSettingsCancel}
+            // onApply={this.handleSettingsChange}
+            // onReset={this.handleSettingsReset}
+          />
         </View>
       </View>
     );

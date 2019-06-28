@@ -125,6 +125,17 @@ const myStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
     // padding: 5
+  },
+  settingsPage: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#248'
+  },
+  settingsButtonsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space around'
   }
 });
 export default myStyles;

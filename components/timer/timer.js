@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Vibration } from 'react-native';
 import styles from '../../Styles';
-import {
-  WORK_TIME,
-  BREAK_TIME,
-  LONG_BREAK_TIME,
-  WORK_LABEL,
-  BREAK_LABEL,
-  VIB_PATTERN
-} from '../../utils/defaults';
+import { WORK_LABEL, BREAK_LABEL, VIB_PATTERN } from '../../utils/defaults';
 
 export default class Timer extends Component {
   constructor(props) {
@@ -16,6 +9,9 @@ export default class Timer extends Component {
     this.state = {
       interval: null,
       currentTime: this.props.duration,
+      workTime: this.props.workTime,
+      breakTime: this.props.breakTime,
+      longBreakTime: this.props.longBreakTime,
       stopped: this.props.stopped,
       started: this.props.started,
       resetted: this.props.resetted,
@@ -58,6 +54,17 @@ export default class Timer extends Component {
         label: nextProps.working ? WORK_LABEL + 1 : BREAK_LABEL
       });
     }
+    if (
+      nextProps.workTime !== this.props.workTime ||
+      nextProps.breakTime !== this.props.breakTime ||
+      nextProps.longBreakTime !== this.props.longBreakTime
+    ) {
+      this.setState({
+        workTime: nextProps.workTime,
+        breakTime: nextProps.breakTime,
+        longBreakTime: nextProps.longBreakTime
+      });
+    }
   }
 
   countdown = () => {
@@ -67,7 +74,7 @@ export default class Timer extends Component {
       });
     }
 
-    if (this.state.currentTime === 0) {
+    if (this.state.currentTime < 0) {
       // Vibration.vibrate(VIB_PATTERN, true);
       Vibration.vibrate();
       this.setState({
@@ -84,21 +91,23 @@ export default class Timer extends Component {
           });
         }
         Vibration.cancel();
-      }, 0);
+      }, 1000);
     }
   };
 
   switchTimer = () => {
     this.setState({
-      currentTime: !this.state.working ? WORK_TIME : BREAK_TIME,
+      currentTime: !this.state.working
+        ? this.state.workTime
+        : this.state.breakTime,
       working: !this.state.working,
       label: !this.state.working ? WORK_LABEL + this.state.unit : BREAK_LABEL,
       unit: this.state.working ? this.state.unit + 1 : this.state.unit
     });
-    if (this.state.unit === 4) {
+    if (this.state.unit > 4) {
       this.setState({
         unit: 1,
-        currentTime: LONG_BREAK_TIME
+        currentTime: this.state.longBreakTime
       });
     }
   };
