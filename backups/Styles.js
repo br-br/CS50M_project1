@@ -129,14 +129,13 @@ const myStyles = StyleSheet.create({
   settingsPage: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'space-evenly',
-    backgroundColor: 'powderblue'
+    justifyContent: 'center',
+    backgroundColor: '#248'
   },
   settingsButtonsContainer: {
-    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-evenly'
+    justifyContent: 'space around'
   }
 });
 export default myStyles;

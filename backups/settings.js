@@ -25,16 +25,16 @@ const settings = props => {
   return (
     <Modal
       onRequestClose={props.onCancel}
-      visible={props.showSettings}
+      // visible={props.showSettings}
       animationType='slide'>
-      <View style={styles.settingsPage}>
-        {modalContent}
-        <View style={styles.settingsButtonsContainer}>
-          <Button title='Apply' color='seagreen' onPress={props.onApply} />
-          <Button title='Reset' color='purple' onPress={props.onReset} />
-          <Button title='Cancel' color='darkorange' onPress={props.onCancel} />
-        </View>
-      </View>
+      {modalContent}
+      {/* <View style={styles.settingsPage}> */}
+      {/* <View style={styles.settingsButtonsContainer}>
+        <Button title='Apply' color='seagreen' onPress={props.onApply} />
+        <Button title='Reset' color='purple' onPress={props.onReset} />
+        <Button title='Cancel' color='darkorange' onPress={props.onCancel} />
+      </View> */}
+      {/* </View> */}
     </Modal>
   );
 };

@@ -9,7 +9,7 @@ import {
   LONG_BREAK_TIME
 } from './utils/defaults';
 import Timer from './components/timer/timer';
-import Settings from './components/settings/settings';
+// import Settings from './components/settings/settings';
 
 const styles = myStyles;
 
@@ -66,12 +66,12 @@ export default class App extends React.Component {
       showSettings: false
     });
   };
-  handleSettingsChange = newSettings => {
+  handleSettingsChange = () => {
     // this.onPressReset();
     this.setState({
-      workTime: newSettings.workTime,
-      breakTime: newSettings.breakTime,
-      longBreakTime: newSettings.longBreakTime,
+      // workTime: newSettings.workTime,
+      // breakTime: newSettings.breakTime,
+      // longBreakTime: newSettings.longBreakTime,
       showSettings: false
     });
   };
@@ -133,9 +133,9 @@ export default class App extends React.Component {
           </TouchableHighlight>
           <Settings
             showSettings={this.state.showSettings}
-            onCancel={this.handleSettingsCancel}
-            onApply={this.handleSettingsChange}
-            onReset={this.handleSettingsReset}
+            // onCancel={this.handleSettingsCancel}
+            // onApply={this.handleSettingsChange}
+            // onReset={this.handleSettingsReset}
           />
         </View>
       </View>
