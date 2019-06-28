@@ -4,6 +4,7 @@ import styles from '../../Styles';
 import {
   WORK_TIME,
   BREAK_TIME,
+  LONG_BREAK_TIME,
   WORK_LABEL,
   BREAK_LABEL,
   VIB_PATTERN
@@ -19,7 +20,8 @@ export default class Timer extends Component {
       started: this.props.started,
       resetted: this.props.resetted,
       working: this.props.working,
-      label: this.props.working ? WORK_LABEL : BREAK_LABEL
+      label: this.props.working ? WORK_LABEL + 1 : BREAK_LABEL,
+      unit: 1
     };
   }
 
@@ -52,7 +54,8 @@ export default class Timer extends Component {
         currentTime: nextProps.duration,
         stopped: true,
         started: false,
-        label: nextProps.working ? WORK_LABEL : BREAK_LABEL
+        unit: 1,
+        label: nextProps.working ? WORK_LABEL + 1 : BREAK_LABEL
       });
     }
   }
@@ -65,7 +68,8 @@ export default class Timer extends Component {
     }
 
     if (this.state.currentTime === 0) {
-      Vibration.vibrate(VIB_PATTERN, true);
+      // Vibration.vibrate(VIB_PATTERN, true);
+      Vibration.vibrate();
       this.setState({
         stopped: true,
         started: false
@@ -80,7 +84,7 @@ export default class Timer extends Component {
           });
         }
         Vibration.cancel();
-      }, 10000);
+      }, 0);
     }
   };
 
@@ -88,8 +92,15 @@ export default class Timer extends Component {
     this.setState({
       currentTime: !this.state.working ? WORK_TIME : BREAK_TIME,
       working: !this.state.working,
-      label: !this.state.working ? WORK_LABEL : BREAK_LABEL
+      label: !this.state.working ? WORK_LABEL + this.state.unit : BREAK_LABEL,
+      unit: this.state.working ? this.state.unit + 1 : this.state.unit
     });
+    if (this.state.unit === 4) {
+      this.setState({
+        unit: 1,
+        currentTime: LONG_BREAK_TIME
+      });
+    }
   };
 
   padZeros = num => {
@@ -105,11 +116,15 @@ export default class Timer extends Component {
   };
   render() {
     return (
-      <View>
-        <Text style={styles.timerLabel}>{this.state.label}</Text>
-        <Text style={styles.timer}>
-          {this.getCurrentTimeString(this.state.currentTime)}
-        </Text>
+      <View style={styles.timerWrapper}>
+        <View style={styles.label}>
+          <Text style={styles.labelText}>{this.state.label}</Text>
+        </View>
+        <View style={styles.timer}>
+          <Text style={styles.timerText}>
+            {this.getCurrentTimeString(this.state.currentTime)}
+          </Text>
+        </View>
       </View>
     );
   }

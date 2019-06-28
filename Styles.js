@@ -21,19 +21,39 @@ const myStyles = StyleSheet.create({
     justifyContent: 'center',
     padding: 20
   },
-  labelContainer: {
+
+  timerWrapper: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20
+    justifyContent: 'center'
   },
+  // labelContainer: {
+  //   flex: 1,
+  //   alignItems: 'center',
+  //   justifyContent: 'center'
+  // },
   timer: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  timerText: {
+    height: 120,
     fontSize: 80,
     color: '#116'
   },
-  timerLabel: {
+
+  label: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  labelText: {
     fontSize: 38,
-    color: '#116'
+    color: '#116',
+    // height: 200
+    textAlignVertical: 'center',
+    textAlign: 'center'
   },
   timerLabel22: {
     fontSize: 22
@@ -93,7 +113,7 @@ const myStyles = StyleSheet.create({
   },
 
   controlContainer: {
-    // flex: 1,
+    flex: 1,
     // width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
