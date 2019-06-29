@@ -67,7 +67,7 @@ const myStyles = StyleSheet.create({
     padding: 10,
     height: 80,
     marginHorizontal: 3,
-    borderRadius: 20,
+    borderRadius: 50,
     borderWidth: 1,
     borderColor: 'linen'
   },
@@ -79,7 +79,7 @@ const myStyles = StyleSheet.create({
     // flex: 1,
     // alignItems: 'center',
     // justifyContent: 'center',
-    backgroundColor: 'seagreen'
+    backgroundColor: 'forestgreen'
   },
   buttonStop: {
     // flex: 1,
@@ -130,20 +130,20 @@ const myStyles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#248',
+    backgroundColor: '#113',
     paddingTop: Constants.statusBarHeight
   },
   apply: {
-    backgroundColor: 'seagreen',
-    margin: 2
+    backgroundColor: 'forestgreen',
+    margin: 3
   },
   reset: {
-    backgroundColor: 'purple',
-    margin: 2
+    backgroundColor: 'slateblue',
+    margin: 3
   },
   cancel: {
     backgroundColor: 'darkorange',
-    margin: 2
+    margin: 3
   },
   settingsButtonsContainer: {
     flex: 1,

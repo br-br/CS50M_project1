@@ -61,13 +61,13 @@ export default class App extends React.Component {
   };
 
   handleSettingsCancel = () => {
-    // this.onPressReset();
+    this.onPressReset();
     this.setState({
       showSettings: false
     });
   };
   handleSettingsChange = newSettings => {
-    // this.onPressReset();
+    this.onPressReset();
     this.setState({
       workTime: newSettings.workTime,
       breakTime: newSettings.breakTime,
@@ -76,7 +76,7 @@ export default class App extends React.Component {
     });
   };
   handleSettingsReset = () => {
-    // this.onPressReset();
+    this.onPressReset();
     this.setState({
       workTime: WORK_TIME,
       breakTime: BREAK_TIME,
