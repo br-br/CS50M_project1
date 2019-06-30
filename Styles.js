@@ -1,10 +1,20 @@
 import { StyleSheet } from 'react-native';
 import Constants from 'expo-constants';
 
+const DARK_TEXT = '#117';
+const LIGHT_TEXT = 'linen';
+const BG_DARK = '#113';
+const BG_LIGHT = '#fdb';
+const GREEN = 'forestgreen';
+const RED = 'crimson';
+const YELLOW = 'darkorange';
+const LILA = 'slateblue';
+const BLUE = '#248';
+
 const myStyles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fdb',
+    backgroundColor: BG_LIGHT,
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingTop: Constants.statusBarHeight
@@ -13,7 +23,7 @@ const myStyles = StyleSheet.create({
     fontSize: 44,
     fontWeight: 'bold',
     padding: 10,
-    color: '#117'
+    color: DARK_TEXT
   },
   timerContainer: {
     flex: 1,
@@ -27,11 +37,7 @@ const myStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  // labelContainer: {
-  //   flex: 1,
-  //   alignItems: 'center',
-  //   justifyContent: 'center'
-  // },
+
   timer: {
     flex: 1,
     alignItems: 'center',
@@ -40,7 +46,7 @@ const myStyles = StyleSheet.create({
   timerText: {
     height: 120,
     fontSize: 80,
-    color: '#116'
+    color: DARK_TEXT
   },
 
   label: {
@@ -50,7 +56,7 @@ const myStyles = StyleSheet.create({
   },
   labelText: {
     fontSize: 38,
-    color: '#116',
+    color: DARK_TEXT,
     // height: 200
     textAlignVertical: 'center',
     textAlign: 'center'
@@ -69,29 +75,20 @@ const myStyles = StyleSheet.create({
     marginHorizontal: 3,
     borderRadius: 50,
     borderWidth: 1,
-    borderColor: 'linen'
+    borderColor: LIGHT_TEXT
   },
   buttonText: {
-    color: 'linen',
+    color: LIGHT_TEXT,
     fontSize: 28
   },
   buttonStart: {
-    // flex: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    backgroundColor: 'forestgreen'
+    backgroundColor: GREEN
   },
   buttonStop: {
-    // flex: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    backgroundColor: 'crimson'
+    backgroundColor: RED
   },
   buttonReset: {
-    // flex: 1,
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    backgroundColor: 'darkorange'
+    backgroundColor: YELLOW
   },
 
   buttonSettings: {
@@ -99,22 +96,21 @@ const myStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginHorizontal: 10,
-    backgroundColor: '#248',
+    backgroundColor: BLUE,
     padding: 10,
     height: 48,
     marginHorizontal: 3,
     borderRadius: 20,
     borderWidth: 1,
-    borderColor: 'linen'
+    borderColor: LIGHT_TEXT
   },
   settingsText: {
-    color: 'linen',
+    color: LIGHT_TEXT,
     fontSize: 22
   },
 
   controlContainer: {
     flex: 1,
-    // width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
@@ -124,25 +120,24 @@ const myStyles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center'
-    // padding: 5
   },
   settingsPage: {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#113',
+    backgroundColor: BG_DARK,
     paddingTop: Constants.statusBarHeight
   },
   apply: {
-    backgroundColor: 'forestgreen',
+    backgroundColor: GREEN,
     margin: 3
   },
   reset: {
-    backgroundColor: 'slateblue',
+    backgroundColor: LILA,
     margin: 3
   },
   cancel: {
-    backgroundColor: 'darkorange',
+    backgroundColor: YELLOW,
     margin: 3
   },
   settingsButtonsContainer: {
@@ -153,6 +148,29 @@ const myStyles = StyleSheet.create({
   },
   settingsTextContainer: {
     flex: 1
+  },
+  sliderContainer: {
+    // alignItems: 'center',
+    // justifyContent: 'center',
+    width: '80%',
+    height: 40,
+    // paddingTop: 10,
+    backgroundColor: 'linen',
+    borderRadius: 20,
+    borderWidth: 1,
+    borderColor: 'linen'
+  },
+  fullWidthCentered: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%'
+  },
+  sliderText: {
+    color: LIGHT_TEXT,
+    fontSize: 22,
+    // marginBottom: 10,
+    marginTop: 5
   }
 });
 export default myStyles;

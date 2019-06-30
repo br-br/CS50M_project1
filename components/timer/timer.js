@@ -60,6 +60,7 @@ export default class Timer extends Component {
       nextProps.longBreakTime !== this.props.longBreakTime
     ) {
       this.setState({
+        currentTime: nextProps.duration,
         workTime: nextProps.workTime,
         breakTime: nextProps.breakTime,
         longBreakTime: nextProps.longBreakTime

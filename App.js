@@ -26,7 +26,8 @@ export default class App extends React.Component {
       stopped: false,
       working: true,
       resetted: false,
-      showSettings: false
+      showSettings: false,
+      running: false
     };
   }
 
@@ -34,13 +35,15 @@ export default class App extends React.Component {
     this.setState({
       started: true,
       stopped: false,
-      resetted: false
+      resetted: false,
+      running: true
     });
   };
   onPressStop = () => {
     this.setState({
       stopped: true,
-      started: false
+      started: false,
+      running: false
     });
   };
   onPressReset = () => {
@@ -50,38 +53,53 @@ export default class App extends React.Component {
       working: true,
       started: false,
       stopped: false,
-      resetted: true
+      resetted: true,
+      running: false
     });
   };
 
   onPressSettings = () => {
     this.setState({
+      stopped: true,
+      // started: false,
       showSettings: true
     });
   };
 
   handleSettingsCancel = () => {
-    this.onPressReset();
+    // this.onPressReset();
     this.setState({
+      started: this.state.started && !this.state.stopped,
+      stopped: !this.state.started && this.state.stopped,
       showSettings: false
     });
   };
   handleSettingsChange = newSettings => {
     this.onPressReset();
     this.setState({
+      currentTime: newSettings.workTime,
       workTime: newSettings.workTime,
       breakTime: newSettings.breakTime,
       longBreakTime: newSettings.longBreakTime,
       showSettings: false
+      // label: WORK_LABEL,
+      // working: true,
+      // started: false,
+      // stopped: false
     });
   };
   handleSettingsReset = () => {
     this.onPressReset();
     this.setState({
+      currentTime: WORK_TIME,
       workTime: WORK_TIME,
       breakTime: BREAK_TIME,
       longBreakTime: LONG_BREAK_TIME,
       showSettings: false
+      // label: WORK_LABEL,
+      // working: true,
+      // started: false,
+      // stopped: false
     });
   };
 
@@ -89,6 +107,9 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={styles.title}>Pomodoro Timer</Text>
+        {/* <Text>{this.state.workTime || 'not defined!'}</Text>
+        <Text>{this.state.longBreakTime || 'not defined!'}</Text>
+        <Text>{this.state.breakTime || 'not defined!'}</Text> */}
         <View style={styles.timerContainer}>
           <Timer
             duration={this.state.currentTime}
@@ -136,6 +157,9 @@ export default class App extends React.Component {
             onCancel={this.handleSettingsCancel}
             onApply={this.handleSettingsChange}
             onReset={this.handleSettingsReset}
+            workTime={this.state.workTime}
+            breakTime={this.state.breakTime}
+            longBreakTime={this.state.longBreakTime}
           />
         </View>
       </View>
