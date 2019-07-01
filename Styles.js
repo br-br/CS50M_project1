@@ -16,8 +16,8 @@ const myStyles = StyleSheet.create({
     flex: 1,
     backgroundColor: BG_LIGHT,
     alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingTop: Constants.statusBarHeight
+    justifyContent: 'space-between'
+    // paddingTop: Constants.statusBarHeight
   },
   title: {
     fontSize: 44,
@@ -46,7 +46,8 @@ const myStyles = StyleSheet.create({
   timerText: {
     height: 120,
     fontSize: 80,
-    color: DARK_TEXT
+    color: DARK_TEXT,
+    paddingTop: 20
   },
 
   label: {
@@ -171,6 +172,21 @@ const myStyles = StyleSheet.create({
     fontSize: 22,
     // marginBottom: 10,
     marginTop: 5
+  },
+  infoContainer: {
+    alignItems: 'center',
+    margin: 20,
+    padding: 10,
+    width: '100%'
+  },
+  infoText: {
+    textAlignVertical: 'center',
+    textAlign: 'center',
+    color: BLUE,
+    fontSize: 18
+  },
+  highlight: {
+    backgroundColor: YELLOW
   }
 });
 export default myStyles;

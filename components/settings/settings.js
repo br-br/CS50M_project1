@@ -11,21 +11,22 @@ export default class Settings extends React.Component {
       longBreakTime: this.props.longBreakTime
     };
   }
-  explainingText = 'explain pomodoro technique';
+  explainingText =
+    'Change the length of the working units, of the short breaks and of the long breaks:';
 
   changeWorkTime(val) {
     this.setState({
-      workTime: val
+      workTime: val * 60
     });
   }
   changeLongBreakTime(val) {
     this.setState({
-      longBreakTime: val
+      longBreakTime: val * 60
     });
   }
   changeBreakTime(val) {
     this.setState({
-      breakTime: val
+      breakTime: val * 60
     });
   }
   applySettings = () => {
@@ -39,9 +40,9 @@ export default class Settings extends React.Component {
         visible={this.props.showSettings}
         animationType='slide'>
         <View style={styles.settingsPage}>
-          <View style={styles.settingsTextContainer}>
-            <Text style={styles.settingsText}>The Pomodoro Technique</Text>
-            <Text style={styles.settingsText}>TODO: {this.explainingText}</Text>
+          <View style={styles.infoContainer}>
+            {/* <Text style={styles.settingsText}>The Pomodoro Technique</Text> */}
+            <Text style={styles.settingsText}>{this.explainingText}</Text>
           </View>
 
           <View style={styles.fullWidthCentered}>
@@ -52,13 +53,15 @@ export default class Settings extends React.Component {
                 thumbTintColor='forestgreen'
                 step={5}
                 minimumValue={10}
-                maximumValue={60}
-                value={this.state.workTime}
+                maximumValue={50}
+                value={parseInt(this.state.workTime / 60)}
                 onValueChange={val => this.changeWorkTime(val)}
               />
             </View>
             <Text style={styles.sliderText}>
-              {'pomodoro time is: ' + this.state.workTime + ' minutes'}
+              {'pomodoro time is: ' +
+                parseInt(this.state.workTime / 60) +
+                ' minutes'}
             </Text>
           </View>
 
@@ -71,12 +74,14 @@ export default class Settings extends React.Component {
                 step={1}
                 minimumValue={1}
                 maximumValue={10}
-                value={this.state.breakTime}
+                value={parseInt(this.state.breakTime / 60)}
                 onValueChange={val => this.changeBreakTime(val)}
               />
             </View>
             <Text style={styles.sliderText}>
-              {'short break time is: ' + this.state.breakTime + ' minutes'}
+              {'short break time is: ' +
+                parseInt(this.state.breakTime / 60) +
+                ' minutes'}
             </Text>
           </View>
 
@@ -88,13 +93,15 @@ export default class Settings extends React.Component {
                 thumbTintColor='forestgreen'
                 step={5}
                 minimumValue={10}
-                maximumValue={60}
-                value={this.state.longBreakTime}
+                maximumValue={50}
+                value={parseInt(this.state.longBreakTime / 60)}
                 onValueChange={val => this.changeLongBreakTime(val)}
               />
             </View>
             <Text style={styles.sliderText}>
-              {'long break Time is: ' + this.state.longBreakTime + ' minutes'}
+              {'long break Time is: ' +
+                parseInt(this.state.longBreakTime / 60) +
+                ' minutes'}
             </Text>
           </View>
 

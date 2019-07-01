@@ -106,10 +106,18 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>Pomodoro Timer</Text>
-        {/* <Text>{this.state.workTime || 'not defined!'}</Text>
-        <Text>{this.state.longBreakTime || 'not defined!'}</Text>
-        <Text>{this.state.breakTime || 'not defined!'}</Text> */}
+        <View style={styles.infoContainer}>
+          <Text style={styles.title}>Pomodoro Timer</Text>
+          <Text style={styles.infoText}>
+            {'Work four units of  ' +
+              parseInt(this.state.workTime / 60) +
+              ' minutes with short breaks of ' +
+              parseInt(this.state.breakTime / 60) +
+              ' minutes in between. Then take a long break of ' +
+              parseInt(this.state.longBreakTime / 60) +
+              ' minutes and start over again.'}
+          </Text>
+        </View>
         <View style={styles.timerContainer}>
           <Timer
             duration={this.state.currentTime}
@@ -145,6 +153,7 @@ export default class App extends React.Component {
             </TouchableHighlight>
           </View>
         </View>
+
         <View style={styles.settingsContainer}>
           <TouchableHighlight
             accessibilityLabel='Customize the settings for work-time and break-time'
