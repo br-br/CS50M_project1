@@ -36,6 +36,7 @@ I implemented the challenge as a Modal. Sliders allow to change work time, break
 ## Demo video
 
 A video demonstrating the app can be viewed [here](https://youtu.be/7oaCeURu6nQ)
+
 To be able to verify the status of the settings, the demo app shows some additional information:
 
 ![Main screen with info](assets/pomodoro_info-text.png?raw=true 'Pomodoro Timer with additional info')
