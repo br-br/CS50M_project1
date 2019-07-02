@@ -108,7 +108,7 @@ export default class App extends React.Component {
       <View style={styles.container}>
         <View style={styles.infoContainer}>
           <Text style={styles.title}>Pomodoro Timer</Text>
-          <Text style={styles.infoText}>
+          {/* <Text style={styles.infoText}>
             {'Work four units of  ' +
               parseInt(this.state.workTime / 60) +
               ' minutes with short breaks of ' +
@@ -116,7 +116,7 @@ export default class App extends React.Component {
               ' minutes in between. Then take a long break of ' +
               parseInt(this.state.longBreakTime / 60) +
               ' minutes and start over again.'}
-          </Text>
+          </Text> */}
         </View>
         <View style={styles.timerContainer}>
           <Timer
