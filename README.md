@@ -31,7 +31,7 @@ The app fullfills the requirements. In addition, following the description on th
 
 I implemented the challenge as a Modal. Sliders allow to change work time, break and long break.
 
-![Main screen](assets/pomodoro-main.png?raw=true 'Pomodoro Timer') ![Settings screen](assets/pomodoro_settings.png?raw=true 'Pomodoro Timer')
+![Main screen](assets/pomodoro-main_.png?raw=true 'Pomodoro Timer') ![Settings screen](assets/pomodoro_settings_.png?raw=true 'Pomodoro Timer')
 
 ## Demo video
 
